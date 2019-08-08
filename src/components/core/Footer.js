@@ -2,49 +2,58 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import FooterLinks from './FooterLinks';
 
-function Footer() {
-  return (
-    <div className="pt-4 my-md-5 pt-md-5 border-top">
-      <div className="row">
-        <div className="col-12 col-md">
-          <img className="mb-2" src="" alt="" width="24" height="24" />
-          <small className="d-block mb-3 text-muted">&copy; 2017-</small>
-        </div>
-        <div className="col-6 col-md">
-          <h5>Features</h5>
-          <ul className="list-unstyled text-small">
-            <li><a className="text-muted" href="#">Cool stuff</a></li>
-            <li><a className="text-muted" href="#">Random feature</a></li>
-            <li><a className="text-muted" href="#">Team feature</a></li>
-            <li><a className="text-muted" href="#">Stuff for developers</a></li>
-            <li><a className="text-muted" href="#">Another one</a></li>
-            <li><a className="text-muted" href="#">Last time</a></li>
-          </ul>
-        </div>
-        <div className="col-6 col-md">
-          <h5>Resources</h5>
-          <ul className="list-unstyled text-small">
-            <li><a className="text-muted" href="#">Resource</a></li>
-            <li><a className="text-muted" href="#">Resource name</a></li>
-            <li><a className="text-muted" href="#">Another resource</a></li>
-            <li><a className="text-muted" href="#">Final resource</a></li>
-          </ul>
-        </div>
-        <div className="col-6 col-md">
-          <h5>About</h5>
-          <ul className="list-unstyled text-small">
-            <li><a className="text-muted" href="#">Team</a></li>
-            <li><a className="text-muted" href="#">Locations</a></li>
-            <li><a className="text-muted" href="#">Privacy</a></li>
-            <li><a className="text-muted" href="#">Terms</a></li>
-          </ul>
+class Footer extends Component {
+  constructor() {
+    super();
+    this.data = [{
+      'title': 'Features',
+      'link': [
+        { 'title': 'Cool stuff', 'link': '#' },
+        { 'title': 'Random feature', 'link': '#' },
+        { 'title': 'Team feature', 'link': '#' },
+        { 'title': 'Stuff for developers', 'link': '#' },
+        { 'title': 'Another one', 'link': '#' },
+        { 'title': 'Last time', 'link': '#' }
+      ]
+    },
+    {
+      'title': 'Resources',
+      'link': [
+        { 'title': 'Resource', 'link': '#' },
+        { 'title': 'Resource name', 'link': '#' },
+        { 'title': 'Another resource', 'link': '#' },
+        { 'title': 'Final resource', 'link': '#' }
+      ]
+    },
+    {
+      'title': 'About',
+      'link': [
+        { 'title': 'Team', 'link': '#' },
+        { 'title': 'Locations', 'link': '#' },
+        { 'title': 'Privacy', 'link': '#' },
+        { 'title': 'Terms', 'link': '#' }
+      ]
+    }];
+  }
+
+  render() {
+    let footer = this.data.map((data)=> <FooterLinks linkData={data}/>);
+    return (
+      <div className="pt-4 my-md-5 pt-md-5 border-top">
+        <div className="row">
+          <div className="col-12 col-md">
+            <img className="mb-2" src="" alt="" width="24" height="24" />
+            <small className="d-block mb-3 text-muted">&copy; 2017-</small>
+          </div>
+          {footer}
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Footer;
