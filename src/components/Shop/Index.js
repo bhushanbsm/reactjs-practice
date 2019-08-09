@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Card from './Card';
+import CardModal from './CardModal'
 
 class Shop extends Component {
 
@@ -22,6 +23,7 @@ class Shop extends Component {
             {this.cardsTag}
           </div>
         </div>
+        <CardModal />
       </div>
     );
   }
@@ -31,21 +33,11 @@ class Shop extends Component {
       .then(response => response.json())
       .then(json => {
         this.cards = json;
-        this.setState({ loading: false});
+        for (let index = 0; index <= 11; index++) {
+          this.cardsTag[index] = (<Card key={index} cardData={this.cards[index]}></Card>);
+        }
       })
-  }
-
-  shouldComponentUpdate() {
-    for(let index = 0; index <= 11; index++) {
-      this.cardsTag[index] = (<Card key={index} cardData={this.cards[index]}></Card>);
-    }
-    // this.cardsTag = this.cards.map((card, index) => {
-    //   if(index == 10) {
-    //     break;
-    //   }
-    //   (<Card key={index} cardData={card}></Card>)
-    // });
-    return true;
+      .then(() => this.setState({ loading: false }))
   }
 }
 

@@ -17,7 +17,6 @@ class Card extends Component {
                     <p className="card-text">{this.props.cardData.title}</p>
                     <a href="#" className="btn btn-primary" data-toggle="modal" data-target="#cardModal">View</a>
                 </div>
-                <CardModal/>
             </div>
         );
     }
