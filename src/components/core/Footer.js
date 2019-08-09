@@ -1,7 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import FooterLinks from './FooterLinks';
@@ -41,7 +37,7 @@ class Footer extends Component {
   }
 
   render() {
-    let footer = this.data.map((data)=> <FooterLinks linkData={data}/>);
+    let footer = this.data.map((data, index)=> <FooterLinks key={index} linkData={data}/>);
     return (
       <div className="pt-4 my-md-5 pt-md-5 border-top">
         <div className="row">
