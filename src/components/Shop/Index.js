@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Card from './Card';
-import CardModal from './CardModal'
 
 class Shop extends Component {
 
@@ -17,14 +16,11 @@ class Shop extends Component {
     }
 
     return (
-      <div className="App">
         <div className="container">
           <div className="card-deck mb-3 text-center">
             {this.cardsTag}
           </div>
         </div>
-        <CardModal />
-      </div>
     );
   }
 
@@ -32,10 +28,7 @@ class Shop extends Component {
     fetch('https://jsonplaceholder.typicode.com/photos')
       .then(response => response.json())
       .then(json => {
-        this.cards = json;
-        for (let index = 0; index <= 11; index++) {
-          this.cardsTag[index] = (<Card key={index} cardData={this.cards[index]}></Card>);
-        }
+        this.cardsTag = json.slice(0,12).map((value, index) => <Card key={index} cardData={value} />);
       })
       .then(() => this.setState({ loading: false }))
   }

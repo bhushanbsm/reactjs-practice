@@ -5,14 +5,16 @@ import Header from './components/core/Header';
 import Footer from './components/core/Footer';
 import Price from './components/pricing/Index';
 import Shop from './components/Shop/Index';
+import SignUp from './components/SignUp/SignUp';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header></Header>
-        {/* <Price></Price> */}
+        <Price></Price>
         <Shop />
+        <SignUp />
         <Footer></Footer>
         {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

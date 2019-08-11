@@ -37,15 +37,17 @@ class Footer extends Component {
   }
 
   render() {
-    let footer = this.data.map((data, index)=> <FooterLinks key={index} linkData={data}/>);
+    let footer = this.data.map((data, index) => <FooterLinks key={index} linkData={data} />);
     return (
-      <div className="pt-4 my-md-5 pt-md-5 border-top">
-        <div className="row">
-          <div className="col-12 col-md">
+      <div className="container">
+        <div className="pt-4 my-md-5 pt-md-5 border-top">
+          <div className="row">
+            <div className="col-12 col-md">
             <img className="mb-2" src="" alt="" width="24" height="24" />
             <small className="d-block mb-3 text-muted">&copy; 2017-</small>
           </div>
-          {footer}
+            {footer}
+          </div>
         </div>
       </div>
     );
